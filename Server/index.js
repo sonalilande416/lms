@@ -15,7 +15,8 @@ const PORT = process.env.PORT || 3000;
 
 const allowedOrigins = [
   'http://localhost:8000',
-  'http://localhost:5173'
+  'http://localhost:5173',
+  'https://lms-tiqb.onrender.com'
 ];
 
 // CORS middleware — allows multiple dev ports
