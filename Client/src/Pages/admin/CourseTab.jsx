@@ -40,7 +40,7 @@ const CourseTab = () => {
 
   const getCourseById = async () => {
     try {
-      const res = await axios.get(`/api/v1/course/${id}`, {
+      const res = await axios.get(`https://lms-1-zpi1.onrender.com/api/v1/course/${id}`, {
         withCredentials: true,
       });
       if (res.data.success) {
@@ -105,7 +105,7 @@ const CourseTab = () => {
 
     try {
       setLoading(true);
-      const res = await axios.put(`/api/v1/course/${id}`, formData, {
+      const res = await axios.put(`https://lms-1-zpi1.onrender.com/api/v1/course/${id}`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -125,7 +125,7 @@ const CourseTab = () => {
 
   const togglePublishUnpublish = async (action) => {
     try {
-      const res = await axios.patch(`/api/v1/course/${id}`, {
+      const res = await axios.patch(`https://lms-1-zpi1.onrender.com/api/v1/course/${id}`, {
         params: {
           action,
         },

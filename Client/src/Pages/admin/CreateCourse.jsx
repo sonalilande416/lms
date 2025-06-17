@@ -30,7 +30,7 @@ const CreateCourse = () => {
         
         try {
             setLoading(true)
-            const res = await axios.post('/api/v1/course/', {courseTitle,category}, {
+            const res = await axios.post('https://lms-1-zpi1.onrender.com/api/v1/course/', {courseTitle,category}, {
                 headers: {
                     "Content-Type":"application/json"
                 },

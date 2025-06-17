@@ -76,7 +76,7 @@ const Courses = () => {
   useEffect(()=> {
     const getAllPublishedCourse = async ()=> {
       try {
-        const res = await axios.get(`/api/v1/course/published-courses`, {withCredentials:true})
+        const res = await axios.get(`https://lms-1-zpi1.onrender.com/api/v1/course/published-courses`, {withCredentials:true})
         if(res.data.success){
           dispatch(setCourse(res.data.courses))
         }

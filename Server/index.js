@@ -10,26 +10,42 @@ import path from "path";
 
 dotenv.config();
 
-const app = express();
-const PORT = process.env.PORT || 3000;
+// const app = express();
+// const PORT = process.env.PORT || 3000;
 
-const allowedOrigins = [
-  'http://localhost:8000',
-  'http://localhost:5173',
-  'https://lms-tiqb.onrender.com'
-];
+// const allowedOrigins = [
+//   'http://localhost:8000',
+//   'http://localhost:5173',
+//   'https://lms-1-zpi1.onrender.com'
+// ];
 
 // CORS middleware — allows multiple dev ports
+// app.use(cors({
+//   origin: function (origin, callback) {
+//     if (!origin || allowedOrigins.includes(origin)) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error('Not allowed by CORS'));
+//     }
+//   },
+//   credentials: true,
+// }));
+
+
+const app = express()
+
+const PORT = process.env.PORT || 3000
+
+// default middleware
+app.use(express.json())
+app.use(cookieParser());
+app.use(express.urlencoded({extended:true}));
 app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true,
-}));
+    origin:"https://lms-1-zpi1.onrender.com",
+    credentials:true
+}))
+
+const _dirname = path.resolve()
 
 // middlewares
 app.use(express.json());

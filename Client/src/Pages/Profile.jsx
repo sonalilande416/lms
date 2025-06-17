@@ -50,7 +50,7 @@ const Profile = () => {
 
        try {
         setLoading(true)
-        const res = await axios.put('/api/v1/user/profile/update',formData, {
+        const res = await axios.put('https://lms-1-zpi1.onrender.com/api/v1/user/profile/update',formData, {
             headers:{
               "Content-Type":"multipart/form-data"
             },

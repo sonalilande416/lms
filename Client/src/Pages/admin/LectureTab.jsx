@@ -34,7 +34,7 @@ const LectureTab = () => {
             formData.append("file", file);
             setMediaProgress(true);
             try {
-                const res = await axios.post(`/api/v1/media/upload-video`, formData, {
+                const res = await axios.post(`https://lms-1-zpi1.onrender.com/api/v1/media/upload-video`, formData, {
                     onUploadProgress: ({ loaded, total }) => {
                         setUploadProgress(Math.round((loaded * 100) / total))
                     }
@@ -65,7 +65,7 @@ const LectureTab = () => {
         }
         try {
             setLoading(true)
-            const res = await axios.post(`/api/v1/course/${courseId}/lecture/${lectureId}`, data, {
+            const res = await axios.post(`https://lms-1-zpi1.onrender.com/api/v1/course/${courseId}/lecture/${lectureId}`, data, {
                 headers: {
                     "Content-Type": "application/json"
                 },
@@ -90,7 +90,7 @@ const LectureTab = () => {
         e.preventDefault()
         try {
             setRemoveLoading(true)
-            const res = await axios.delete(`/api/v1/course/lecture/${lectureId}`, { withCredentials: true })
+            const res = await axios.delete(`https://lms-1-zpi1.onrender.com/api/v1/course/lecture/${lectureId}`, { withCredentials: true })
             if (res.data.success) {
                 navigate(`/admin/course/${courseId}/lecture`)
                 toast.success(res.data.message)

@@ -71,7 +71,7 @@ const handleDelete = async (id) => {
   if (!confirmDelete) return;
 
   try {
-    await axios.delete(`/api/v1/course/${id}`, { withCredentials: true });
+    await axios.delete(`https://lms-1-zpi1.onrender.com/api/v1/course/${id}`, { withCredentials: true });
     const updatedCourses = course.filter((c) => c._id !== id);
     dispatch(setCourse(updatedCourses));
     alert("Course deleted successfully!");
@@ -90,7 +90,7 @@ const Course = () => {
   useEffect(() => {
     const getCreatorCourse = async () => {
       try {
-        const res = await axios.get("/api/v1/course/", {
+        const res = await axios.get("https://lms-1-zpi1.onrender.com/api/v1/course/", {
           withCredentials: true,
         });
         if (res.data.success) {
