@@ -36,6 +36,7 @@ const app = express()
 
 const PORT = process.env.PORT || 3000
 
+
 // default middleware
 app.use(express.json())
 app.use(cookieParser());
@@ -45,12 +46,10 @@ app.use(cors({
     credentials:true
 }))
 
-const _dirname = path.resolve()
-
 // middlewares
-app.use(express.json());
-app.use(cookieParser());
-app.use(express.urlencoded({ extended: true }));
+// app.use(express.json());
+// app.use(cookieParser());
+// app.use(express.urlencoded({ extended: true }));
 
 // routes
 app.use("/api/v1/media", mediaRoute);
